@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MachinePark.Shared;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,11 +9,22 @@ namespace MachinePark.Pages
     // Razor and C# partials code combines. Instead of writing in one file with @ for everything
     public partial class MachineOverView
     {
-        public string Name { get; set; }
-        public Guid Id { get; set; }
+        public IEnumerable<Machine> Machines { get; set; }
 
-        public Status Status { get; set; } = Status.Offline;
+        private void InitializeMachines()
+        {
+            Machines = new List<Machine>()
+            {
+                new Machine{Id = new Guid(), Log = new List<string>(){"Up", "And Going" }, Status = Shared.Status.Online, Name = "Old Sparky" },
+                new Machine{Id = new Guid(), Log = new List<string>(){"Just Here", "Not Going" }, Status = 0, Name = "New Shiny" }
 
-        public List<string> Log { get; set; } = new List<string>(); //null reference.
+            };
+        }
+
+        protected override Task OnInitializedAsync()
+        {
+            InitializeMachines();
+            return base.OnInitializedAsync();
+        }
     }
 }

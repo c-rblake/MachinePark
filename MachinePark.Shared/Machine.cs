@@ -9,7 +9,7 @@ namespace MachinePark.Shared
     public class Machine
     {
         public string Name { get; set; }
-        public Guid Id { get; set; }
+        public Guid MachineId { get; set; }
 
         public Status Status { get; set; } = Status.Offline;
 

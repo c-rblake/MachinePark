@@ -16,8 +16,8 @@ namespace MachinePark.Pages
         {
             Machines = new List<Machine>()
             {
-                new Machine{Id = Guid.NewGuid(), Log = new List<string>(){"Up", "And Going" }, Status = Shared.Status.Online, Name = "Old Sparky" },
-                new Machine{Id = Guid.NewGuid(), Log = new List<string>(){"Just Here", "Not Going" }, Status = 0, Name = "New Shiny" }
+                new Machine{MachineId = Guid.NewGuid(), Log = new List<string>(){"Up", "And Going" }, Status = Shared.Status.Online, Name = "Old Sparky" },
+                new Machine{MachineId = Guid.NewGuid(), Log = new List<string>(){"Just Here", "Not Going" }, Status = 0, Name = "New Shiny" }
 
             };
         }
@@ -25,13 +25,7 @@ namespace MachinePark.Pages
 
         protected override Task OnInitializedAsync()
         {
-            //InitializeMachines();
-            var machines = new List<Machine>()
-            {
-                new Machine{Id = Guid.NewGuid(), Log = new List<string>(){"Up", "And Going" }, Status = Shared.Status.Online, Name = "Old Sparky" },
-                new Machine{Id = Guid.NewGuid(), Log = new List<string>(){"Just Here", "Not Going" }, Status = 0, Name = "New Shiny" }
-
-            };
+            InitializeMachines();
             return base.OnInitializedAsync();
         }
 

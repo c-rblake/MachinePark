@@ -1,2 +1,38 @@
 ﻿@page "/machineoverview"
 
+<h1 class="page-title">All Machines</h1>
+
+@if (Machines == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Machine ID</th>
+                <th>Name</th>
+                <th>Status</th>
+                <th>Log</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var machine in Machines)
+            {
+                <tr>
+                    <td>@machine.Id</td>
+                    <td>@machine.Name</td>
+                    <td>@machine.Status</td>
+                    <td>@machine.Log[0]</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+
+    @*<Blazor.FlexGrid.Components.GridView DataAdapter="@Machines" PageSize="1"></Blazor.FlexGrid.Components.GridView>*@
+}

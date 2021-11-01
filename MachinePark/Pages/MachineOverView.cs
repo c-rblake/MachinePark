@@ -1,4 +1,5 @@
-﻿using MachinePark.Shared;
+﻿using Blazor.FlexGrid.DataAdapters;
+using MachinePark.Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,16 +16,41 @@ namespace MachinePark.Pages
         {
             Machines = new List<Machine>()
             {
-                new Machine{Id = new Guid(), Log = new List<string>(){"Up", "And Going" }, Status = Shared.Status.Online, Name = "Old Sparky" },
-                new Machine{Id = new Guid(), Log = new List<string>(){"Just Here", "Not Going" }, Status = 0, Name = "New Shiny" }
+                new Machine{Id = Guid.NewGuid(), Log = new List<string>(){"Up", "And Going" }, Status = Shared.Status.Online, Name = "Old Sparky" },
+                new Machine{Id = Guid.NewGuid(), Log = new List<string>(){"Just Here", "Not Going" }, Status = 0, Name = "New Shiny" }
 
             };
         }
 
+
         protected override Task OnInitializedAsync()
         {
-            InitializeMachines();
+            //InitializeMachines();
+            var machines = new List<Machine>()
+            {
+                new Machine{Id = Guid.NewGuid(), Log = new List<string>(){"Up", "And Going" }, Status = Shared.Status.Online, Name = "Old Sparky" },
+                new Machine{Id = Guid.NewGuid(), Log = new List<string>(){"Just Here", "Not Going" }, Status = 0, Name = "New Shiny" }
+
+            };
             return base.OnInitializedAsync();
         }
+
+        //Flex Grid Serverside Nugget.
+        //public CollectionTableDataAdapter<Machine> Machines { get; set; }
+
+        //protected override Task OnInitializedAsync()
+        //{
+
+        //    var machines = new List<Machine>()
+        //    {
+        //        new Machine{Id = Guid.NewGuid(), Log = new List<string>(){"Up", "And Going" }, Status = Shared.Status.Online, Name = "Old Sparky" },
+        //        new Machine{Id = Guid.NewGuid(), Log = new List<string>(){"Just Here", "Not Going" }, Status = 0, Name = "New Shiny" }
+
+        //    };
+        //    Machines = new CollectionTableDataAdapter<Machine>(machines);
+        //    return base.OnInitializedAsync();
+        //}
+
+
     }
 }

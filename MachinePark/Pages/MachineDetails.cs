@@ -7,10 +7,12 @@ using System.Threading.Tasks;
 
 namespace MachinePark.Pages
 {
-    public partial class MachineDetails
+    public partial class MachineDetails : ComponentBase
     {
         [Parameter]
         public Guid MachineId { get; set; }
+        [Parameter]
+        public string Name { get; set; }
 
         public Machine Machine { get; set; } = new Machine();
 
@@ -30,7 +32,7 @@ namespace MachinePark.Pages
         protected override Task OnInitializedAsync()
         {
             InitializeMachines();
-            Machine = Machines.FirstOrDefault(m => m.MachineId == MachineId);
+            Machine = Machines.FirstOrDefault(m => m.Name == Name);
             return base.OnInitializedAsync();
         }
     }

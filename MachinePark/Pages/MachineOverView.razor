@@ -9,6 +9,11 @@
 else
 {
 
+
+
+
+
+
     <table class="table">
         <thead>
             <tr>
@@ -32,20 +37,36 @@ else
                             @*<a href="@($"MachineDetails/{machine.MachineId}")" class="btn btn-primary table-btn">*@
                             <i class="fa fa-info-circle"></i>
                         </a>
-                        <button><i class="fa fa-remove"></i></button>
+                        <button @onclick="() => Remove(machine)" class="btn btn-danger"><i class="fa fa-remove"></i></button>
                     </td>
                 </tr>
             }
         </tbody>
     </table>
 
+    @*SEND THE PARAMETER DOWN TO CHILD COMPONENT. IN THIS CASE THE PARAMETER IS A FUNCTION => EVENT to listen for.*@
 
+    <AddMachine Add="AddMachine" />
+
+    <button @onclick="() => Add()" class="btn btn-danger"><i class="fa fa-add"></i></button>
 
     @*<Blazor.FlexGrid.Components.GridView DataAdapter="@Machines" PageSize="1"></Blazor.FlexGrid.Components.GridView>*@
 
     @code{
+        private void Remove(Machine machine)
+        {
+            //Todo remove backend. Not for debugging though.
+            Machines.Remove(machine);
+        }
+        private void Add()
+        {
+            Machines.Add(new Machine { Name = "Add MACHINE", MachineId = Guid.NewGuid(), Status = Shared.Status.Offline, Log = new List<string>() });
+        }
 
-
-
+        private void AddMachine(string text) //Todo Machine machine. Or use a Form since it is a complex type.
+        {
+            if (!string.IsNullOrWhiteSpace(text))
+                Machines.Add(new Machine { Name = text, MachineId = Guid.NewGuid(), Status = Shared.Status.Offline, Log = new List<string>() });
+        }
     }
 }

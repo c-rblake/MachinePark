@@ -11,7 +11,7 @@ namespace MachinePark.Pages
     // Razor and C# partials code combines. Instead of writing in one file with @ for everything
     public partial class MachineOverView : ComponentBase 
     {
-        public IEnumerable<Machine> Machines { get; set; }
+        public List<Machine> Machines { get; set; }
 
         private void InitializeMachines()
         {

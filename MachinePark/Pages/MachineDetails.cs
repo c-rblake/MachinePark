@@ -15,6 +15,7 @@ namespace MachinePark.Pages
         public string Name { get; set; }
 
         public Machine Machine { get; set; } = new Machine();
+        public Machine Machine2 { get; set; } = new Machine();
 
         public IEnumerable<Machine> Machines { get; set; }
 
@@ -33,6 +34,7 @@ namespace MachinePark.Pages
         {
             InitializeMachines();
             Machine = Machines.FirstOrDefault(m => m.Name == Name);
+            Machine2 = Machines.FirstOrDefault(m => m.MachineId == MachineId);
             return base.OnInitializedAsync();
         }
     }

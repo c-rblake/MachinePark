@@ -25,12 +25,14 @@ else
                 <tr>
                     <td>@machine.MachineId</td>
                     <td>@machine.Name</td>
-                    <td>@machine.Status</td>
+                    <td class="@(machine.Status == Shared.Status.Online? "running":"")">@machine.Status</td>
                     <td>@machine.Log[0]</td>
                     <td>
                         <a href="@($"MachineDetails/{machine.Name}")" class="btn btn-primary table-btn">
-                            Details
+                            @*<a href="@($"MachineDetails/{machine.MachineId}")" class="btn btn-primary table-btn">*@
+                            <i class="fa fa-info-circle"></i>
                         </a>
+                        <button><i class="fa fa-remove"></i></button>
                     </td>
                 </tr>
             }
@@ -40,4 +42,10 @@ else
 
 
     @*<Blazor.FlexGrid.Components.GridView DataAdapter="@Machines" PageSize="1"></Blazor.FlexGrid.Components.GridView>*@
+
+    @code{
+
+
+
+    }
 }

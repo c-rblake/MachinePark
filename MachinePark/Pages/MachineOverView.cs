@@ -18,7 +18,7 @@ namespace MachinePark.Pages
             Machines = new List<Machine>()
             {
                 new Machine{MachineId = Guid.NewGuid(), Log = new List<string>(){"Up", "And Going" }, Status = Shared.Status.Online, Name = "Old Sparky" },
-                new Machine{MachineId = Guid.NewGuid(), Log = new List<string>(){"Just Here", "Not Going" }, Status = 0, Name = "New Shiny" }
+                new Machine{MachineId = Guid.NewGuid(), Log = new List<string>(){"Crash", "Not Going" }, Status = Shared.Status.Offline, Name = "New Shiny" }
 
             };
         }

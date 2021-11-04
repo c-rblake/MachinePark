@@ -9,7 +9,11 @@
 else
 {
 
+    @*SEND THE PARAMETER DOWN TO CHILD COMPONENT. IN THIS CASE THE PARAMETER IS A FUNCTION => EVENT to listen for.*@
 
+    <AddMachine Add="AddMachine" />
+
+    <button @onclick="() => Add()" class="btn btn-danger"><i class="fa fa-add"></i></button>
 
 
 
@@ -44,11 +48,7 @@ else
         </tbody>
     </table>
 
-    @*SEND THE PARAMETER DOWN TO CHILD COMPONENT. IN THIS CASE THE PARAMETER IS A FUNCTION => EVENT to listen for.*@
 
-    <AddMachine Add="AddMachine" />
-
-    <button @onclick="() => Add()" class="btn btn-danger"><i class="fa fa-add"></i></button>
 
     @*<Blazor.FlexGrid.Components.GridView DataAdapter="@Machines" PageSize="1"></Blazor.FlexGrid.Components.GridView>*@
 

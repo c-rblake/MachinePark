@@ -14,5 +14,10 @@ namespace MachinePark.Shared
         public Status Status { get; set; } = Status.Offline;
 
         public List<string> Log { get; set; } = new List<string>(); //null reference.
+
+        public Machine()
+        {
+            MachineId = Guid.NewGuid();
+        }
     }
 }

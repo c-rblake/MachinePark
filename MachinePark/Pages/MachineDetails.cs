@@ -36,7 +36,7 @@ namespace MachinePark.Pages
         {
             InitializeMachines();
             Machine = Machines.FirstOrDefault(m => m.Name == Name);
-            Machine2 = Machines.FirstOrDefault(m => m.MachineId == MachineId);
+            Machine2 = Machines.FirstOrDefault(m => m.MachineId == MachineId); //Todo GUID PARSE ?
             return base.OnInitializedAsync();
         }
     }

@@ -26,7 +26,7 @@ namespace MachinePark.Pages
         }
 
 
-        protected override Task OnInitializedAsync()
+        protected override Task OnInitializedAsync() //Blazor Method that initalizes data. Create or Download from Webserver.
         {
             InitializeMachines();
             return base.OnInitializedAsync();

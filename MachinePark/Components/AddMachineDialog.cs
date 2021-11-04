@@ -13,5 +13,23 @@ namespace MachinePark.Components
 
 
         public bool ShowDialog { get; set; }
+
+        public void Show()
+        {
+            ResetDialog();
+            ShowDialog = true;
+            StateHasChanged(); //Redraw "UI" Component Like in the ToDo list from 3 november end. This would have been good.
+        }
+
+        public void Close() // Add to Razor Code
+        {
+            ShowDialog = false;
+            StateHasChanged();
+        }
+
+        private void ResetDialog()
+        {
+            Machine = new Machine() { Status = Status.Offline };
+        }
     }
 }

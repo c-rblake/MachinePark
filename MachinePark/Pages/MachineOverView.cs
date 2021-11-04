@@ -1,4 +1,5 @@
 ﻿using Blazor.FlexGrid.DataAdapters;
+using MachinePark.Components;
 using MachinePark.Shared;
 using Microsoft.AspNetCore.Components;
 using System;
@@ -13,6 +14,9 @@ namespace MachinePark.Pages
     {
         [Inject]
         public State State { get; set; }
+
+        protected AddMachineDialog AddMachineDialog { get; set; } //Points to the @ref in OverView.razor.
+                                                                  //This is how Blazor gives access to components in my UI. @ref + Property in code behind.
 
         //public List<Machine> Machines { get; set; }
 

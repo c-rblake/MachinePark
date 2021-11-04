@@ -48,7 +48,9 @@ else
         </tbody>
     </table>
 
-
+    <button @onclick="QuickAddMachine" class="btn btn-dark table-btn quick-add-btn">&nbsp;&nbsp;+&nbsp;&nbsp;</button>
+    <AddMachineDialog @ref="AddMachineDialog"></AddMachineDialog> 
+    @*Code in the behind scenes*@
 
     @*<Blazor.FlexGrid.Components.GridView DataAdapter="@Machines" PageSize="1"></Blazor.FlexGrid.Components.GridView>*@
 

@@ -31,5 +31,13 @@ namespace MachinePark.Components
         {
             Machine = new Machine() { Status = Status.Offline };
         }
+
+        protected void HandleValidSubmit()
+        {
+            State.Machines.Add(Machine);
+            ShowDialog = false;
+
+            StateHasChanged();
+        }
     }
 }

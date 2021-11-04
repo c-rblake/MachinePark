@@ -18,6 +18,13 @@ namespace MachinePark.Pages
         protected AddMachineDialog AddMachineDialog { get; set; } //Points to the @ref in OverView.razor.
                                                                   //This is how Blazor gives access to components in my UI. @ref + Property in code behind.
 
+        protected void QuickAddMachine()
+        {
+            AddMachineDialog.Show(); //Invokable Methods.
+            //AddMachineDialog.ShowDialog(); NOT INVOKABLE member. Property fields etc
+        }
+
+
         //public List<Machine> Machines { get; set; }
 
         //private void InitializeMachines()

@@ -21,8 +21,8 @@
                         <ValidationSummary />
 
                         <div class="form-group">
-                            <label for="lastName">Last name: </label>
-                            <InputText id="lastName" class="form-control" @bind-Value="@Machine.Name" placeholder="Enter last name"></InputText>
+                            <label for="lastName">Machine Name </label>
+                            <InputText id="lastName" class="form-control" @bind-Value="@Machine.Name" placeholder="Enter name"></InputText>
                             <ValidationMessage For="@(() => Machine.Name)" />
                         </div>
 

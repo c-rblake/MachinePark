@@ -34,7 +34,7 @@ namespace MachinePark.Components
 
         protected void HandleValidSubmit()
         {
-            State.Machines.Add(Machine);
+            State.Machines.Add(Machine); //Works as intended
             ShowDialog = false;
 
             StateHasChanged();

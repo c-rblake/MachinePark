@@ -2,7 +2,7 @@
 
 <h1 class="page-title">All Machines</h1>
 
-@if (Machines == null)
+@if (State == null)
 {
     <p><em>Loading...</em></p>
 }
@@ -29,7 +29,7 @@ else
             </tr>
         </thead>
         <tbody>
-            @foreach (var machine in Machines)
+            @foreach (var machine in State.Machines)
             {
                 <tr>
                     <td>@machine.MachineId</td>
@@ -56,17 +56,17 @@ else
         private void Remove(Machine machine)
         {
             //Todo remove backend. Not for debugging though.
-            Machines.Remove(machine);
+            State.Machines.Remove(machine);
         }
         private void Add()
         {
-            Machines.Add(new Machine { Name = "Add MACHINE", MachineId = Guid.NewGuid(), Status = Shared.Status.Offline, Log = new List<string>() });
+            State.Machines.Add(new Machine { Name = "Add MACHINE", MachineId = Guid.NewGuid(), Status = Shared.Status.Offline, Log = new List<string>() });
         }
 
         private void AddMachine(string text) //Todo Machine machine. Or use a Form since it is a complex type.
         {
             if (!string.IsNullOrWhiteSpace(text))
-                Machines.Add(new Machine { Name = text, MachineId = Guid.NewGuid(), Status = Shared.Status.Offline, Log = new List<string>() });
+                State.Machines.Add(new Machine { Name = text, MachineId = Guid.NewGuid(), Status = Shared.Status.Offline, Log = new List<string>() });
         }
     }
 }

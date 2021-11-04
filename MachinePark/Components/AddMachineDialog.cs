@@ -9,9 +9,9 @@ namespace MachinePark.Components
 {
     public partial class AddMachineDialog :ComponentBase
     {
+        [Inject]
+        public State State { get; set; }
         public Machine Machine { get; set; } = new Machine() { Status= Status.Offline}; // Some Values have to be set on instantiation for databinding to work
-
-
         public bool ShowDialog { get; set; }
 
         public void Show()

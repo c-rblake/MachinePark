@@ -13,7 +13,9 @@ namespace MachinePark.Components
         public State State { get; set; }
         public Machine Machine { get; set; } = new Machine() { Status= Status.Offline}; // Some Values have to be set on instantiation for databinding to work
         public bool ShowDialog { get; set; }
-
+        
+        [Parameter] //Used by others. In this case MachineOverView is subscribing
+        public EventCallback<bool> CloseEventCallback { get; set; }
         public void Show()
         {
             ResetDialog();
@@ -32,11 +34,12 @@ namespace MachinePark.Components
             Machine = new Machine() { Status = Status.Offline };
         }
 
-        protected void HandleValidSubmit()
+        protected async Task HandleValidSubmit()
         {
             State.Machines.Add(Machine); //Works as intended
             ShowDialog = false;
 
+            await CloseEventCallback.InvokeAsync(true); //Subscribed in the Overview AddMachine component
             StateHasChanged();
         }
     }

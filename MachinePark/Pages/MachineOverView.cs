@@ -23,6 +23,10 @@ namespace MachinePark.Pages
             AddMachineDialog.Show(); //Invokable Methods.
             //AddMachineDialog.ShowDialog(); NOT INVOKABLE member. Property fields etc
         }
+        public void AddMachineDialog_OnDialogClose()
+        {
+            StateHasChanged();
+        }
 
 
         //public List<Machine> Machines { get; set; }

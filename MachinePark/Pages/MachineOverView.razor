@@ -49,7 +49,7 @@ else
     </table>
 
     <button @onclick="QuickAddMachine" class="btn btn-dark table-btn quick-add-btn">&nbsp;&nbsp;+&nbsp;&nbsp;</button>
-    <AddMachineDialog @ref="AddMachineDialog"></AddMachineDialog> 
+    <AddMachineDialog @ref="AddMachineDialog" CloseEventCallback="@AddMachineDialog_OnDialogClose"></AddMachineDialog> @*AddMachineDialog_OnDialogClose How PARENT handle callback*@
     @*Code in the behind scenes*@
 
     @*<Blazor.FlexGrid.Components.GridView DataAdapter="@Machines" PageSize="1"></Blazor.FlexGrid.Components.GridView>*@

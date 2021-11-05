@@ -29,7 +29,8 @@ else
             </tr>
         </thead>
         <tbody>
-            @foreach (var machine in State.Machines)
+            @*@foreach (var machine in State.Machines)*@
+            @foreach (var machine in Machines.Machines)
             {
                 <tr>
                     <td>@machine.MachineId</td>

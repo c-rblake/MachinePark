@@ -19,7 +19,8 @@ namespace MachinePark
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
             builder.RootComponents.Add<App>("#app");
 
-            builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+            //13. builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+            builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("http://localhost:7071/") });
             //builder.Services.AddFlexGridServerSide and we are done. This a webassembly.. Flexgrid is for server side.
             //builder.Services.AddTransient(sp => new HttpClient
             //{

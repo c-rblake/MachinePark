@@ -27,7 +27,12 @@ namespace MachinePark.Pages
         {
             StateHasChanged();
         }
+        private MachinesList machines = new MachinesList();
 
+        protected override async Task OnInitialedAsync()
+        {
+            machines = await 
+        }
 
         //public List<Machine> Machines { get; set; }
 
